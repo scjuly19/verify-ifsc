@@ -1,6 +1,9 @@
 import React from "react";
 import { css } from "@emotion/react";
-import Input from "./components/input";
+import HomePage from "./HomePage";
+import Details from "./Details";
+import { Router } from "@reach/router";
+
 export default function App() {
   return (
     <div
@@ -19,7 +22,13 @@ export default function App() {
         {" "}
         Verify Your IFSC Code
       </h1>
-      <Input />
+
+      <Router>
+        <HomePage path="/" />
+        <Details path="/details" />
+      </Router>
+
+      {/* <Details /> */}
     </div>
   );
 }
