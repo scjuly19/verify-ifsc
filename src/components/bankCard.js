@@ -1,7 +1,14 @@
 import React from "react";
 import { css } from "@emotion/react";
+import { useStore } from "../hooks/useStore";
+import { Link } from "@reach/router";
+import { colors } from "../assets/colors";
+import { ContentBlock } from "../components/contentBlock";
 
+const keys = ["BANK", "CITY", "DISTRICT", "STATE"];
 export default function Card() {
+  const { state } = useStore();
+  const { data } = state;
   return (
     <div
       css={css`
@@ -14,7 +21,7 @@ export default function Card() {
     >
       <div
         css={css`
-          background: white;
+          background: ${colors.primaryColor};
           width: 80%;
           max-width: 800px;
           display: flex;
@@ -30,34 +37,23 @@ export default function Card() {
           }
         `}
       >
-        <ContentBlock title="BANK" description="HDFC" />
-
-        <ContentBlock title="BANK" description="HDFC" />
-
-        <ContentBlock title="BANK" description="HDFC" />
-
-        <ContentBlock title="BANK" description="HDFC" />
+        {keys.map((key, index) => (
+          <ContentBlock
+            title={key}
+            description={data[key]}
+            containerStyle={css`
+              margin-top: 5px;
+            `}
+            key={index}
+            titleStyle={css`
+              color: #c6c2c1;
+            `}
+          />
+        ))}
+        <Link to="/details">
+          <span>View More</span>
+        </Link>
       </div>
     </div>
   );
 }
-const ContentBlock = (props) => {
-  const { description, title } = props;
-  return (
-    <div
-      css={css`
-        margin-top: 5px;
-      `}
-    >
-      {" "}
-      <span
-        css={css`
-          color: #c6c2c1;
-        `}
-      >
-        {title}
-      </span>
-      <h2>{description}</h2>
-    </div>
-  );
-};

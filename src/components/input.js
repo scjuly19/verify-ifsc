@@ -28,6 +28,9 @@ export default function Input(props) {
             `}
             onChange={onChange}
             value={value}
+            id="ifsc-code-input"
+            placeholder="Enter bank ifsc code here..."
+            autoComplete="off"
           />
           <button
             css={css`
@@ -42,8 +45,11 @@ export default function Input(props) {
               text-align: center;
               font-size: 1em;
               font-weight: bold;
+              opacity: ${!value ? "0.8" : "1"};
             `}
             onClick={onSubmit}
+            id="submit-button"
+            disabled={!value}
           >
             Go
           </button>
