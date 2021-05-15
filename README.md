@@ -22,3 +22,7 @@ With the help of this project, i learned how to setup a React Project from scrat
 # What problem does it solve?
 
 It makes it easier to verify whether the ifsc code is valid or not. Also one can view other details related to the bank.
+
+# Screenshot
+
+![](verify-ifsc.png)
