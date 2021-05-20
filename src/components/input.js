@@ -12,9 +12,24 @@ export default function Input(props) {
             margin-top: 1rem;
           `}
         >
+          <label
+            htmlFor="ifsc-code"
+            css={css`
+              border: 0;
+              clip: rect(0 0 0 0);
+              height: 1px;
+              margin: -1px;
+              overflow: hidden;
+              padding: 0;
+              position: absolute;
+              width: 1px;
+            `}
+          >
+            Verify
+          </label>
           <input
             css={css`
-              width: 80%;
+              width: 70%;
               max-width: 480px;
               padding: 1rem;
               border-top-left-radius: 10px;
@@ -28,7 +43,7 @@ export default function Input(props) {
             `}
             onChange={onChange}
             value={value}
-            id="ifsc-code-input"
+            id="ifsc-code"
             placeholder="Enter bank ifsc code here..."
             autoComplete="off"
           />
@@ -48,10 +63,10 @@ export default function Input(props) {
               opacity: ${!value ? "0.8" : "1"};
             `}
             onClick={onSubmit}
-            id="submit-button"
             disabled={!value}
+            type="submit"
           >
-            Go
+            Search
           </button>
         </div>
       </form>

@@ -55,7 +55,14 @@ function Details() {
                 align-items: center;
                 justify-content: space-between;
                 padding: 0px 1rem;
-                text-align: right;
+                text-align: center;
+                flex-direction: column;
+                @media (min-width: 1024px) {
+                  flex-direction: row;
+                  align-items: center;
+                  justify-content: space-between;
+                  text-align: right;
+                }
               `}
               key={index}
               titleStyle={css`
